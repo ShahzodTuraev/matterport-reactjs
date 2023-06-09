@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Answer, Btn, Container, Form, Input } from './style';
+import { Btn, Container, Form, Input, Answer } from './style';
 
 const ChatGPTBox = () => {
   const [userInput, setUserInput] = useState('');
@@ -20,7 +20,7 @@ const ChatGPTBox = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: 'Bearer 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',
+            Authorization: 'Bearer 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',
           },
         }
       );

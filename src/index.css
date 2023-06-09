@@ -115,6 +115,7 @@ code {
   cursor: pointer;
   margin: 5px 0;
 }
+.menu_item:hover{background: rgb(235, 235, 235);}
 
 
 /* FOOTER STYLE CHANGING */
