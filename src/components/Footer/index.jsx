@@ -25,9 +25,7 @@ const Footer = () => {
   ]
 
   const onActive =(index)=>{
-    console.log(index);
     select === index ? setSelect(10) : setSelect(index)
-
   }
   return (
     <>

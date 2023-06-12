@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import {device} from '../responsive'
 import {ReactComponent as close} from '../../assets/icons/close-icon.svg'
 const Container = styled.div`
   background: rgba(0, 0, 0, 0.5);
@@ -9,8 +10,6 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  border-radius: 5px;
-  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 `;
 const Main = styled.div`
   position: fixed;
@@ -29,6 +28,14 @@ Icon.Close = styled(close)`
   right: 12%;
   z-index: 3;
   cursor: pointer;
+  @media ${device.tablet}{
+    right: 5%
+  }
+  @media ${device.mobile}{
+    width: 40px;
+    right: 3%;
+    top: 12.5%;
+  }
 `;
 const Btn = styled.button`
   width: 140px;
@@ -44,6 +51,14 @@ const Btn = styled.button`
   right: 17%;
   z-index: 3;
   cursor: pointer;
+  @media ${device.tablet}{
+    right: 15%;
+  }
+  @media ${device.mobile}{
+    font-size: 14px;
+    height: 40px;
+    top: 14%;
+  }
 `;
 const Title = styled.p`
   font-size: 52px;
@@ -51,11 +66,26 @@ const Title = styled.p`
   text-align: center;
   margin-bottom: 14rem;
   line-height: 0;
+  @media ${device.tablet}{
+    margin-bottom: 5rem;
+    margin-top: 13rem;
+  }
+  @media ${device.mobile}{
+    font-size: 30px;
+    margin-top: 5rem;
+  }
 `;
+
 const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  @media ${device.tablet}{
+    flex-direction: column;
+  }
+  @media ${device.mobile}{
+    gap: 5px;
+  }
 `;
 const ImgBox = styled.div`
   width: 380px;
@@ -63,15 +93,48 @@ const ImgBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  @media ${device.laptop}{
+    width: 240px;
+  }
+  @media ${device.tablet}{
+    flex-direction: row-reverse;
+    width: 550px;
+    justify-content: flex-end;
+  }
+  @media ${device.mobile}{
+    width: 360px;
+  }
 `;
 const Text = styled.p`
   font-size: 24px;
   text-align: center;
   margin-bottom: 60px;
+  @media ${device.laptop}{
+    font-size: 18px;
+  }
+  @media ${device.mobile}{
+    font-size: 1rem;
+  }
 `;
 const Img = styled.img`
-  width: 330px;
-  height: 330px;
+  max-width: 330px;
+  max-height: 330px;
+  width: 100%;
+  height: 100%;
+  @media ${device.laptop}{
+    width: 220px;
+    height: 220px;
+  }
+  @media ${device.tablet}{
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+  }
+  @media ${device.mobile}{
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+  }
 `;
 
 

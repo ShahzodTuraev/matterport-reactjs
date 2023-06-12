@@ -134,3 +134,14 @@ code {
   bottom: 0;
   transition: 0.6s;
 }
+
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width: 740px) {
+  .page_heading{
+    font-size: 23px;
+  }
+  .page_subHeading{
+    font-size: 15px;
+  }
+
+}

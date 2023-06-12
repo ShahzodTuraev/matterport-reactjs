@@ -9,6 +9,35 @@ import Footer from './components/Footer';
 
 
 const App = () => {
+// draft start
+function test(){}
+document.addEventListener('DOMContentLoaded', function() {
+  var para = document.location.href.split("?");
+  if (window.opener) {
+    window.opener.parent.test(para);
+    console.log('para:', para);
+    setTimeout(function() {
+      window.close();
+    }, 5);
+  }
+});
+
+function test(item) {
+  var info = item[1].split('+');
+  var payShow = info[1];
+  var PAY_WINDOW = document.getElementById("PAY_WINDOW");
+  var NAME = document.getElementById("NAME");
+  var PRICE = document.getElementById("PRICE");
+  var PRICE_SHOW = document.getElementById("PRICE_SHOW");
+
+  if (PAY_WINDOW && NAME && PRICE && PRICE_SHOW) {
+    PAY_WINDOW.style.display = "block";
+    NAME.textContent = info[0];
+    PRICE.textContent = payShow;
+    PRICE_SHOW.textContent = payShow.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+}
+// draft end
   const onSelect = (index) => {
     window.location.href = data[index].url
   }
@@ -52,6 +81,17 @@ const App = () => {
 
         {/* MAIN MATTERPORT IFRAME */}
         <iframe style={{position: 'fixed', zIndex: '-1', top: '0', left: '0', width:'99.95vw', height: '100vh'}} title='unique' src={dirData.matterLink} frameBorder={0} ></iframe>
+        {/* <div id="PAY_WINDOW" style={{ display: isOpen ? 'block' : 'none' }}>
+      <img id="CLOSE" src="./resource//images/close-icon.svg" alt="close icon" />
+      <p>상품명: <span id="NAME">{name}</span></p>
+      <p style={{ display: 'none' }}>상품가격: <span id="PRICE">{price}</span> 원</p>
+      <p>상품가격: <span id="PRICE_SHOW">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> 원</p>
+      <button id="BUY">작품 후원</button>
+      <button className="mainsell">작품 구매</button>
+      <button className="sell buy" value={1000000}>1점당 100만원</button>
+      <button id="rent">작품 대여</button>
+      <button className="rent" value={100000}>1달에 10만원</button>
+    </div> */}
         <Footer/>
       </div>
     </Router>

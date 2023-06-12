@@ -1,10 +1,13 @@
 import { styled } from "styled-components";
+import {device} from '../responsive'
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 3;
   background: rgba(0, 0, 0, .4);
 `;
 const Main = styled.div`
@@ -22,6 +25,10 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${device.mobile}{
+    width: 360px;
+    padding: 10px;
+  }
 `;
 
 const Login = styled.div`
@@ -47,6 +54,9 @@ const InputWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 80%;
+  @media ${device.mobile}{
+    width: 100%;
+  }
 `;
 const Label = styled.p`
   font-size: 1rem;
@@ -61,6 +71,9 @@ const Input = styled.input`
   border-radius: 3px;
   padding: 0 8px;
   &:focus{outline: 1px solid blue}
+  @media ${device.mobile}{
+    width: ${({width})=>(width ? `${width}` : '68%')};
+  }
 `;
 const BtnWrap = styled.div`
   display: flex;
