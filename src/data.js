@@ -1,6 +1,15 @@
 
 const data = [
   {
+    id: 17,
+    url: '/k/kpop1',
+    title: '메버(MEVER)-K-POP',
+    heading: 'BTS 달콤한 초콜릿을 3D매장에서',
+    subTitle: 'K-POP 아티스트 3D굿즈샵',
+    navLink: '아티스트 초콜렡/맥스타일',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=kU9eeAy9kCj'
+  },
+  {
     id: 1,
     url: '/k/art1',
     title: '메버(MEVER)-청담갤러리1',
@@ -46,15 +55,6 @@ const data = [
     matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=7smSPVHaGGq'
   },
   {
-    id: 6,
-    url: '/k/cafe1',
-    title: '메버(MEVER)-선릉카페',
-    heading: '삼익영농 프랜차이즈 3D 매장',
-    subTitle: '김정준의 『대단한커피』 1호점',
-    navLink: '선릉 카페(대단한 커피)',
-    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=XEUeL5Gd51C'
-  },
-  {
     id: 7,
     url: '/k/cafe2',
     title: '메버(MEVER)-대전자산협회',
@@ -62,6 +62,15 @@ const data = [
     subTitle: '대전자산협회',
     navLink: '대전자산협회',
     matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=uyR8UvaRnrh'
+  },
+  {
+    id: 6,
+    url: '/k/cafe1',
+    title: '메버(MEVER)-선릉카페',
+    heading: '삼익영농 프랜차이즈 3D 매장',
+    subTitle: '김정준의 『대단한커피』 1호점',
+    navLink: '선릉 카페(대단한 커피)',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=XEUeL5Gd51C'
   },
   {
     id: 8,
@@ -145,15 +154,41 @@ const data = [
     matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=b2Yhn9w1uwF'
   },
   {
-    id: 17,
-    url: '/k/kpop1',
-    title: '메버(MEVER)-K-POP',
-    heading: 'BTS 달콤한 초콜릿을 3D매장에서',
-    subTitle: 'K-POP 아티스트 3D굿즈샵',
-    navLink: 'K-POP 아티스트',
-    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=kU9eeAy9kCj'
+    id: 18,
+    url: '/k/academy2',
+    title: '메버(MEVER)-고려직업전문학교',
+    heading: '미네르바의 혁신을 넘어',
+    subTitle: '3D AI 고려직업전문학교',
+    navLink: '고려직업전문학교',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=f3qYTV3MHmB'
   },
-
+  {
+    id: 19,
+    url: '/k/academy3',
+    title: '메버(MEVER)-고려직업전문학교',
+    heading: '미네르바의 혁신을 넘어',
+    subTitle: '3D AI 고려직업전문학교',
+    navLink: '고려직업전문학교 3',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=aFG3kyivcVs'
+  },
+  {
+    id: 20,
+    url: '/k/office2',
+    title: '메버(MEVER)-크럼플 오피스',
+    heading: '5층 크럼플 오피스',
+    subTitle: '5층 크럼플 오피스',
+    navLink: '크럼플 오피스',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=sVfsQSq6La8'
+  },
+  {
+    id: 21,
+    url: '/k/studio1',
+    title: '메버(MEVER)-스튜디오',
+    heading: '스튜디오',
+    subTitle: '스튜디오',
+    navLink: '스튜디오',
+    matterLink: 'https://my.matterport.com/show/?play=1&share=0&wh=0&m=8saUqrWjNtX'
+  },
 ]
 
 export default data

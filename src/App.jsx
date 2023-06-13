@@ -9,35 +9,7 @@ import Footer from './components/Footer';
 
 
 const App = () => {
-// draft start
-function test(){}
-document.addEventListener('DOMContentLoaded', function() {
-  var para = document.location.href.split("?");
-  if (window.opener) {
-    window.opener.parent.test(para);
-    console.log('para:', para);
-    setTimeout(function() {
-      window.close();
-    }, 5);
-  }
-});
 
-function test(item) {
-  var info = item[1].split('+');
-  var payShow = info[1];
-  var PAY_WINDOW = document.getElementById("PAY_WINDOW");
-  var NAME = document.getElementById("NAME");
-  var PRICE = document.getElementById("PRICE");
-  var PRICE_SHOW = document.getElementById("PRICE_SHOW");
-
-  if (PAY_WINDOW && NAME && PRICE && PRICE_SHOW) {
-    PAY_WINDOW.style.display = "block";
-    NAME.textContent = info[0];
-    PRICE.textContent = payShow;
-    PRICE_SHOW.textContent = payShow.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-}
-// draft end
   const onSelect = (index) => {
     window.location.href = data[index].url
   }
@@ -51,14 +23,23 @@ function test(item) {
     localStorage.getItem('instruct') === 'hide' ? setInstructPage(false) : setTimeout(()=>{setInstructPage(true)}, 10000)
   },[])
   
+  // const linkContent = `https://mever.me/${dirData.url}`
   const onMenu = () => {
     setMenuOpen(!menuOpen)
+    // console.log(linkContent);
   }
   return (
     <HelmetProvider>
       <Helmet>
         <title>{dirData.title}</title>
         <meta name="description" content="100%개발자들이 마케팅하는 회사. 3D웹 특허기술로 홈페이지를 제작하고, AI콘텐츠 마케팅으로 자동 매출을 만듭니다. 3D하드웨어+AI소프트웨어를 연구합니다." />
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://mever.me/k/academy1"/>
+        {/* <meta property="og:url" content={linkContent}/> */}
+        <meta property="og:title" content="메버(meVer)"/>
+        <meta property="og:description" content="3D홈페이지 AI마케팅 개발사." />
+        <meta property="og:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbOYgrJ%2FbtshgpiCQgQ%2FG0q7D0uka6tJYRjvBjSYs0%2Fimg.png"/>
+        <meta property="og:keywords" content="MEVER,메버,STO,STO발행,STO투자,조각투자,토큰증권,STO관련주,3D홈페이지제작,3D교육,3D학원,메타버스" />
       </Helmet>
     <Router>
       <div>
@@ -81,17 +62,6 @@ function test(item) {
 
         {/* MAIN MATTERPORT IFRAME */}
         <iframe style={{position: 'fixed', zIndex: '-1', top: '0', left: '0', width:'99.95vw', height: '100vh'}} title='unique' src={dirData.matterLink} frameBorder={0} ></iframe>
-        {/* <div id="PAY_WINDOW" style={{ display: isOpen ? 'block' : 'none' }}>
-      <img id="CLOSE" src="./resource//images/close-icon.svg" alt="close icon" />
-      <p>상품명: <span id="NAME">{name}</span></p>
-      <p style={{ display: 'none' }}>상품가격: <span id="PRICE">{price}</span> 원</p>
-      <p>상품가격: <span id="PRICE_SHOW">{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> 원</p>
-      <button id="BUY">작품 후원</button>
-      <button className="mainsell">작품 구매</button>
-      <button className="sell buy" value={1000000}>1점당 100만원</button>
-      <button id="rent">작품 대여</button>
-      <button className="rent" value={100000}>1달에 10만원</button>
-    </div> */}
         <Footer/>
       </div>
     </Router>
