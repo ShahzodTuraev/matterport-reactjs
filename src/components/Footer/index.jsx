@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Icon, Img, Main, TextBox } from './style'
 import Chatting from '../../assets/icons/chatting.png'
-import ChatGPT from '../../assets/icons/chat-gpt.png'
-import Reserve from '../../assets/icons/reserve.png'
-import Others from '../../assets/icons/others.png'
+import ChatGPT from '../../assets/icons/chatgpt-logo.png'
+import Reserve from '../../assets/icons/time-lapse.png'
+import Others from '../../assets/icons/list-paper.png'
 import ChattingBox from '../ChattingBox';
 import ChatGPTBox from '../ChatGPTBox';
 import ReserveBox from '../ReserveBox';

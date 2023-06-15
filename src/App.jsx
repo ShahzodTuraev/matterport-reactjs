@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
 import data from './data';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Instruct from './components/Instruct';
 import SignIn from './components/SigninPage';
 import Footer from './components/Footer';
-
-
+import ReactAudioPlayer from 'react-audio-player'
+import music from './assets/icons/music.svg'
 
 const App = () => {
-
+  const [brand, setBrand] = useState(true)
+  useEffect(()=>{
+    setTimeout(() => {
+      setBrand(false)
+    }, 4000);
+  },[])
   const onSelect = (index) => {
     window.location.href = data[index].url
   }
@@ -28,6 +33,24 @@ const App = () => {
     setMenuOpen(!menuOpen)
     // console.log(linkContent);
   }
+  // music play functions
+  const audioPlayerRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (audioPlayerRef.current) {
+      const audioPlayer = audioPlayerRef.current.audioEl.current;
+
+      if (isPlaying) {
+        audioPlayer.pause();
+      } else {
+        audioPlayer.play();
+      }
+
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <HelmetProvider>
       <Helmet>
@@ -47,6 +70,19 @@ const App = () => {
         {signin && <SignIn/>}
         <h1 className='page_heading'>{dirData.heading}</h1>
         <p className='page_subHeading'>{`- ${dirData.subTitle} -`}</p>
+        
+        {/* MUSIC BUTTON */}
+        <ReactAudioPlayer
+          style={{display: 'none'}}
+          src={dirData.music}
+          ref={audioPlayerRef}
+          autoPlay = {false}
+          controls
+        />
+        <div onClick={togglePlay} className='music_box'>
+          <img src={music} alt="music icon" />
+        </div>
+
         {/* MENU BUTTON */}
         <div onClick={onMenu} className="menu_wrap">
           <div className={menuOpen? "menu-btn open" : "menu-btn"}>
@@ -59,9 +95,10 @@ const App = () => {
             <p className='menu_item' style={index === (dirData.id - 1) ? {color: 'coral'}: {color: '#000'}} onClick={()=>{onSelect(index) }} key={index}>{page.navLink}</p>
           ))}
         </div>
-
+          
         {/* MAIN MATTERPORT IFRAME */}
         <iframe style={{position: 'fixed', zIndex: '-1', top: '0', left: '0', width:'99.95vw', height: '100vh'}} title='unique' src={dirData.matterLink} frameBorder={0} ></iframe>
+        {brand && <div className='brand_remove'>meVer</div>}
         <Footer/>
       </div>
     </Router>

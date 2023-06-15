@@ -29,6 +29,27 @@ code {
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+/* MUSIC BOX STYLE */
+.music_box{
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  /* position: fixed;
+  transform: translate(-50%, -50%);
+  top: ; */
+  margin: 5px auto;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.music_box img {
+  width: 20px;
+  height: 20px;
+
+}
 /* MENU BURGER ICON STYLE */
 .menu_wrap {
   width: 48px;
@@ -94,7 +115,7 @@ code {
 /* MENU BOX STYLE */
 
 .menu_box{
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -135,6 +156,21 @@ code {
   transition: 0.6s;
 }
 
+.brand_remove{
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom:0;
+  color: #fff;
+  font-size: 2rem;
+  background: #1C1E20;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+
+}
 /* RESPONSIVE DESIGN */
 @media only screen and (max-width: 740px) {
   .page_heading{
@@ -143,5 +179,13 @@ code {
   .page_subHeading{
     font-size: 15px;
   }
-
+  .menu_box{
+    top: 5rem;
+    height: 75vh;
+    overflow-y: auto;
+  }
+  .brand_remove{
+    height: 70px;
+    font-size: 1rem;
+  }
 }

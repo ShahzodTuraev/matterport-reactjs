@@ -3,75 +3,29 @@ import axios from 'axios';
 import { Btn, Container, Form, Input, Answer } from './style';
 
 const ChatGPTBox = () => {
-  const [userInput, setUserInput] = useState('');
-  const [chatLog, setChatLog] = useState([]);
-
-  const callChatGPT = async (message) => {
-    try {
-      const response = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: 'gpt-3.5-turbo',
-          messages: [
-            { role: 'system', content: 'You are a helpful assistant.' },
-            { role: 'user', content: message },
-          ],
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer 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',
-          },
-        }
-      );
-
-      const reply = response.data.choices[0].message.content;
-      displayReply(reply);
-    } catch (error) {
-      console.error('API request failed:', error);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    displayUserInput(userInput);
-    callChatGPT(userInput);
-    setUserInput('');
-  };
-
-  const displayUserInput = (input) => {
-    setChatLog((prevLog) => [
-      ...prevLog,
-      <p key={prevLog.length} style={{ color: 'coral', margin: '5px 0' }}>
-        <strong>User : </strong>
-        {input}
-      </p>,
-    ]);
-  };
-
-  const displayReply = (reply) => {
-    setChatLog((prevLog) => [
-      ...prevLog,
-      <p key={prevLog.length} style={{ color: 'rgb(79, 79, 79)' }}>
-        <strong>ChatGPT : </strong>
-        {reply}
-      </p>,
-    ]);
-  };
-
+  // const [userInput, setUserInput] = useState('')
+  const [prompt, setPrompt] = useState('');
+  const [response, setResponse] = useState('')
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  axios
+  .post('http://localhost:8022/chat', {prompt})
+  .then((res)=>{setResponse(res.data)})
+  .catch((err)=>{console.log(err)})
+  }
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
         <Input
           type="text"
           autoComplete="off"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
           placeholder="메시지 입력"
         />
         <Btn type="submit">전송</Btn>
       </Form>
-      <Answer >{chatLog}</Answer>
+      <Answer >{response}</Answer>
     </Container>
   );
 };

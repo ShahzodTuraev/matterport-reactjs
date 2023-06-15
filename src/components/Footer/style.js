@@ -3,7 +3,8 @@ import {ReactComponent as bottom} from '../../assets/icons/to-bottom.svg';
 import {device} from '../responsive'
 
 const Container = styled.div`
-  background: linear-gradient(#F5F9FC, #E6EFFA);
+  /* background: linear-gradient(#F5F9FC, #E6EFFA); */
+  background: #fff;
   position: fixed;
   width: 100%;
   height: 60px;
@@ -37,7 +38,8 @@ const Img = styled.img`
   cursor: pointer;
 `;
 const TextBox = styled.div`
-  background: linear-gradient(#F5F9FC, #E6EFFA);
+  /* background: linear-gradient(#F5F9FC, #E6EFFA); */
+  background: #fff;
   position: fixed;
   width: 500px;
   height: 70vh;
@@ -51,7 +53,7 @@ const TextBox = styled.div`
   align-items: center;
   @media ${device.tablet}{
     width: 100%;
-    height: 85vh;
+    height: 65vh;
   }
 `;
 

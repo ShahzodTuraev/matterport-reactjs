@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import {device} from '../responsive'
 
 const Container = styled.div`
   width: 95%;
@@ -27,6 +28,9 @@ const Btn = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  @media ${device.mobile}{
+    width: 20%;
+  }
 `;
 const Answer = styled.div`
   height: 650px;

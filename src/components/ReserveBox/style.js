@@ -5,7 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 0;
 `;
 const Heading = styled.h2`
   color: #000672;
@@ -16,8 +16,7 @@ const InputWrap = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  margin: 50px 0;
-
+  margin: 20px 0;
 `;
 const Button = styled.button`
   background: #2469FF;
