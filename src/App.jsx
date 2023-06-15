@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, useFetcher} from 'react-router-dom';
 import data from './data';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Instruct from './components/Instruct';
@@ -7,7 +7,7 @@ import SignIn from './components/SigninPage';
 import Footer from './components/Footer';
 import ReactAudioPlayer from 'react-audio-player'
 import music from './assets/icons/music.svg'
-
+import mus from './assets/music/hey.mp3'
 const App = () => {
   const [brand, setBrand] = useState(true)
   useEffect(()=>{
@@ -36,19 +36,34 @@ const App = () => {
   // music play functions
   const audioPlayerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const togglePlay = () => {
     if (audioPlayerRef.current) {
       const audioPlayer = audioPlayerRef.current.audioEl.current;
-
+      
       if (isPlaying) {
         audioPlayer.pause();
       } else {
         audioPlayer.play();
       }
-
+      
       setIsPlaying(!isPlaying);
     }
+  };
+
+  // useEffect(()=>{
+  //   console.log("helloddd");
+  // },[]);
+
+  // const dataReceive = (queryString) => {
+  //   console.log("data :",queryString);
+  // }
+
+
+
+
+  var audio1 = document.getElementById("backmus");
+  window.onload = function() {
+    audio1.play();
   };
 
   return (
@@ -70,13 +85,13 @@ const App = () => {
         {signin && <SignIn/>}
         <h1 className='page_heading'>{dirData.heading}</h1>
         <p className='page_subHeading'>{`- ${dirData.subTitle} -`}</p>
-        
         {/* MUSIC BUTTON */}
         <ReactAudioPlayer
           style={{display: 'none'}}
           src={dirData.music}
           ref={audioPlayerRef}
-          autoPlay = {false}
+          id='audio1'
+          autoPlay
           controls
         />
         <div onClick={togglePlay} className='music_box'>
@@ -85,6 +100,7 @@ const App = () => {
 
         {/* MENU BUTTON */}
         <div onClick={onMenu} className="menu_wrap">
+
           <div className={menuOpen? "menu-btn open" : "menu-btn"}>
             <div className="menu-btn_burger"></div>
           </div>
@@ -95,7 +111,7 @@ const App = () => {
             <p className='menu_item' style={index === (dirData.id - 1) ? {color: 'coral'}: {color: '#000'}} onClick={()=>{onSelect(index) }} key={index}>{page.navLink}</p>
           ))}
         </div>
-          
+      
         {/* MAIN MATTERPORT IFRAME */}
         <iframe style={{position: 'fixed', zIndex: '-1', top: '0', left: '0', width:'99.95vw', height: '100vh'}} title='unique' src={dirData.matterLink} frameBorder={0} ></iframe>
         {brand && <div className='brand_remove'>meVer</div>}

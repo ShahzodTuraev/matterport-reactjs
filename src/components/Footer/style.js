@@ -31,8 +31,8 @@ Icon.BottomClose =styled(bottom)`
   margin: 10px 0;
 `;
 const Img = styled.img`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin: 0;
   border-radius: 5px;
   cursor: pointer;

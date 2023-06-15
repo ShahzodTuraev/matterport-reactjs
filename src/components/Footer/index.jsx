@@ -32,7 +32,7 @@ const Footer = () => {
     <Container>
       <Main>
         {imgData.map((image, index)=>(
-          <Img className={select ===(image.id - 1 ) ? 'activeBtn' : 'passiveBtn'} onClick={()=>{onActive(index)}} key={image.id} src={image.source} alt={image.replace}/>
+          <Img className= 'passiveBtn' onClick={()=>{onActive(index)}} key={image.id} src={image.source} alt={image.replace}/>
           ))}
       </Main>
     </Container>
